@@ -64,7 +64,7 @@ public class MyClassLoader extends ClassLoader{
         Class<?> clazz = classLoader.loadClass(className);
 
         for (Method m : clazz.getDeclaredMethods()) {
-            System.out.println(clazz.getSimpleName() + "." + m.getName());
+            System.err.println(clazz.getSimpleName() + "." + m.getName());
         }
 
         Object instance = clazz.getDeclaredConstructor().newInstance();
