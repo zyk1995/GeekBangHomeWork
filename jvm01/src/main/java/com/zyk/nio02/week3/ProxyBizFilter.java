@@ -2,12 +2,14 @@ package com.zyk.nio02.week3;
 
 
 import com.zyk.nio02.HttpRequestFilter;
+import com.zyk.nio02.HttpResponseFilter;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.DefaultHttpHeaders;
 import io.netty.handler.codec.http.FullHttpRequest;
+import io.netty.handler.codec.http.FullHttpResponse;
 import io.netty.handler.codec.http.HttpHeaders;
 
-public class ProxyBizFilter implements HttpRequestFilter {
+public class ProxyBizFilter implements HttpRequestFilter, HttpResponseFilter {
 
 
     public static ProxyBizFilter newInstance() {
@@ -31,4 +33,9 @@ public class ProxyBizFilter implements HttpRequestFilter {
     }
 
 
+    @Override
+    public void filter(FullHttpResponse response) {
+        response.headers().set("zyk", "响应体我被我动过手脚啦");
+
+    }
 }

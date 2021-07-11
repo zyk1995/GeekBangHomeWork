@@ -13,7 +13,7 @@ public class MyHttpClient2 {
 
         // 请求网关地址
         Request request = new Request.Builder()
-                .url("http://127.0.0.1:8888/test")
+                .url("http://127.0.0.1:8888/hello")
                 .build();
 
         Response response = null;

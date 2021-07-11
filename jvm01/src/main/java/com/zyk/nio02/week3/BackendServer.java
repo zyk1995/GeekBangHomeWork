@@ -37,6 +37,7 @@ public class BackendServer {
     }
 
     private static void service(Socket socket) {
+        String inputContent = "";
         try {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             InputStream inputStream = socket.getInputStream();
@@ -45,7 +46,7 @@ public class BackendServer {
             outputStream.write(buffer, 0, len);
             //
             byte[] input = outputStream.toByteArray();
-            String inputContent = new String(input, "UTF-8");
+            inputContent = new String(input, "UTF-8");
             System.out.println("BackendServer收到请求:\n" + inputContent);
             outputStream.close();
         } catch (IOException e) {
@@ -58,7 +59,7 @@ public class BackendServer {
             printWriter.println("HTTP/1.1 200 OK");
             printWriter.println("Content-Type:text/html;charset=utf-8");
             printWriter.println("Content-Type:text/html;charset=utf-8");
-            String body = "hello,nio";
+            String body = "".equals(inputContent) ? "hello,空白" : inputContent;
             printWriter.println("Content-Length:" + body.getBytes().length);
             printWriter.println();
             printWriter.write(body);
