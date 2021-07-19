@@ -30,7 +30,7 @@ public class CompletableFutureDemo {
                 e.printStackTrace();
             }
             return "world";
-        }),(s1,s2)->{return s1 + " " + s2;}).join();
+        }),(s1,s2)-> s1 + " " + s2).join();
         System.out.println("thenCombine:"+result3);
     
         CompletableFuture.supplyAsync(() -> "Hello, java course.")
@@ -53,7 +53,7 @@ public class CompletableFutureDemo {
                 e.printStackTrace();
             }
             return "Hi Girl";
-        }),(s)->{return s;}).join();
+        }),(s)-> s).join();
         System.out.println(result4);
         
         // 5.补偿异常
