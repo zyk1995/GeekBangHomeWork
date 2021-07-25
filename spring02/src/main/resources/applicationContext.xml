@@ -19,6 +19,13 @@
         <property name="id" value="100" />
         <property name="name" value="KK100" />
     </bean>
+
+    <bean id="beanStu02"
+          class="com.zyk.spring01.Student">
+        <property name="id" value="100" />
+        <property name="name" value="KK100" />
+    </bean>
+
     
     <bean id="class1" class="com.zyk.spring02.Klass">
         <property name="students">
